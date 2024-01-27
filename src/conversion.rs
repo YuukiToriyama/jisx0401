@@ -7,6 +7,21 @@ struct PrefectureData {
 }
 
 impl Prefecture {
+    /// Returns prefecture identification code
+    ///
+    /// # Example
+    /// ```rust
+    /// use jisx0401::Prefecture;
+    ///
+    /// let tokyo = Prefecture::TOKYO;
+    /// assert_eq!(tokyo.code(), "13");
+    /// let kyoto = Prefecture::KYOTO;
+    /// assert_eq!(kyoto.code(), "26");
+    /// ```
+    pub fn code(&self) -> &'static str {
+        self.value().code
+    }
+
     fn value(&self) -> PrefectureData {
         match self {
             Prefecture::HOKKAIDO => PrefectureData {
@@ -245,5 +260,15 @@ impl Prefecture {
                 name_en: "okinawa",
             },
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::Prefecture;
+
+    #[test]
+    fn code() {
+        assert_eq!(Prefecture::HOKKAIDO.code(), "01")
     }
 }
