@@ -1,6 +1,7 @@
 [package]
 name = "jisx0401"
 version = "0.1.0-alpha.1"
+description = "Utility for JIS X 0401"
 edition = "2021"
 
 [dependencies]
