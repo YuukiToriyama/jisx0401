@@ -1,6 +1,6 @@
 [package]
 name = "jisx0401"
-version = "0.1.0-alpha.1"
+version = "0.1.0-alpha.2"
 description = "Utility for JIS X 0401"
 authors = ["Yuuki Toriyama <github@toriyama.dev>"]
 license = "MIT"
