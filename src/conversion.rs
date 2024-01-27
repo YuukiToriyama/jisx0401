@@ -37,6 +37,21 @@ impl Prefecture {
         self.value().name_ja
     }
 
+    /// Returns prefecture name in English
+    ///
+    /// # Example
+    /// ```rust
+    /// use jisx0401::Prefecture;
+    ///
+    /// let gunma = Prefecture::TOTTORI;
+    /// assert_eq!(gunma.name_en(), "tottori");
+    /// let yamanashi = Prefecture::EHIME;
+    /// assert_eq!(yamanashi.name_en(), "ehime");
+    /// ```
+    pub fn name_en(&self) -> &'static str {
+        self.value().name_en
+    }
+
     fn value(&self) -> PrefectureData {
         match self {
             Prefecture::HOKKAIDO => PrefectureData {
@@ -290,5 +305,10 @@ mod tests {
     #[test]
     fn name_ja() {
         assert_eq!(Prefecture::AOMORI.name_ja(), "青森県");
+    }
+
+    #[test]
+    fn name_en() {
+        assert_eq!(Prefecture::FUKUOKA.name_en(), "fukuoka");
     }
 }
