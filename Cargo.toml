@@ -4,6 +4,7 @@ version = "0.1.0-alpha.1"
 description = "Utility for JIS X 0401"
 authors = ["Yuuki Toriyama <github@toriyama.dev>"]
 license = "MIT"
+repository = "https://github.com/YuukiToriyama/jisx0401"
 edition = "2021"
 
 [dependencies]
