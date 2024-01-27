@@ -1,6 +1,7 @@
 mod conversion;
 mod iter;
 
+#[derive(PartialEq, Debug)]
 pub enum Prefecture {
     HOKKAIDO,
     AOMORI,

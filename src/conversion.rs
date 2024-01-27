@@ -293,6 +293,81 @@ impl Prefecture {
     }
 }
 
+impl TryFrom<&str> for Prefecture {
+    type Error = &'static str;
+
+    /// Convert prefecture code or prefecture name to `Prefecture`
+    ///
+    /// # Example
+    /// ```rust
+    /// use jisx0401::Prefecture;
+    ///
+    /// let result = Prefecture::try_from("47");
+    /// assert_eq!(result.unwrap(), Prefecture::OKINAWA);
+    ///
+    /// let result = Prefecture::try_from("48");
+    /// assert!(result.is_err());
+    ///
+    /// let result = Prefecture::try_from("北海道");
+    /// assert_eq!(result.unwrap(), Prefecture::HOKKAIDO);
+    ///
+    /// let result = Prefecture::try_from("ほっかいどう");
+    /// assert!(result.is_err());
+    /// ```
+    fn try_from(value: &str) -> Result<Self, Self::Error> {
+        match value {
+            "01" | "北海道" => Ok(Prefecture::HOKKAIDO),
+            "02" | "青森県" => Ok(Prefecture::AOMORI),
+            "03" | "岩手県" => Ok(Prefecture::IWATE),
+            "04" | "宮城県" => Ok(Prefecture::MIYAGI),
+            "05" | "秋田県" => Ok(Prefecture::AKITA),
+            "06" | "山形県" => Ok(Prefecture::YAMAGATA),
+            "07" | "福島県" => Ok(Prefecture::FUKUSHIMA),
+            "08" | "茨城県" => Ok(Prefecture::IBARAKI),
+            "09" | "栃木県" => Ok(Prefecture::TOCHIGI),
+            "10" | "群馬県" => Ok(Prefecture::GUNMA),
+            "11" | "埼玉県" => Ok(Prefecture::SAITAMA),
+            "12" | "千葉県" => Ok(Prefecture::CHIBA),
+            "13" | "東京都" => Ok(Prefecture::TOKYO),
+            "14" | "神奈川県" => Ok(Prefecture::KANAGAWA),
+            "15" | "新潟県" => Ok(Prefecture::NIIGATA),
+            "16" | "富山県" => Ok(Prefecture::TOYAMA),
+            "17" | "石川県" => Ok(Prefecture::ISHIKAWA),
+            "18" | "福井県" => Ok(Prefecture::HUKUI),
+            "19" | "山梨県" => Ok(Prefecture::YAMANASHI),
+            "20" | "長野県" => Ok(Prefecture::NAGANO),
+            "21" | "岐阜県" => Ok(Prefecture::GIFU),
+            "22" | "静岡県" => Ok(Prefecture::SHIZUOKA),
+            "23" | "愛知県" => Ok(Prefecture::AICHI),
+            "24" | "三重県" => Ok(Prefecture::MIE),
+            "25" | "滋賀県" => Ok(Prefecture::SHIGA),
+            "26" | "京都府" => Ok(Prefecture::KYOTO),
+            "27" | "大阪府" => Ok(Prefecture::OSAKA),
+            "28" | "兵庫県" => Ok(Prefecture::HYOGO),
+            "29" | "奈良県" => Ok(Prefecture::NARA),
+            "30" | "和歌山県" => Ok(Prefecture::WAKAYAMA),
+            "31" | "鳥取県" => Ok(Prefecture::TOTTORI),
+            "32" | "島根県" => Ok(Prefecture::SHIMANE),
+            "33" | "岡山県" => Ok(Prefecture::OKAYAMA),
+            "34" | "広島県" => Ok(Prefecture::HIROSHIMA),
+            "35" | "山口県" => Ok(Prefecture::YAMAGUCHI),
+            "36" | "徳島県" => Ok(Prefecture::TOKUSHIMA),
+            "37" | "香川県" => Ok(Prefecture::KAGAWA),
+            "38" | "愛媛県" => Ok(Prefecture::EHIME),
+            "39" | "高知県" => Ok(Prefecture::KOCHI),
+            "40" | "福岡県" => Ok(Prefecture::FUKUOKA),
+            "41" | "佐賀県" => Ok(Prefecture::SAGA),
+            "42" | "長崎県" => Ok(Prefecture::NAGASAKI),
+            "43" | "熊本県" => Ok(Prefecture::KUMAMOTO),
+            "44" | "大分県" => Ok(Prefecture::OITA),
+            "45" | "宮崎県" => Ok(Prefecture::MIYAZAKI),
+            "46" | "鹿児島県" => Ok(Prefecture::KAGOSHIMA),
+            "47" | "沖縄県" => Ok(Prefecture::OKINAWA),
+            _ => Err("No matching prefectures were found."),
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use crate::Prefecture;
@@ -310,5 +385,23 @@ mod tests {
     #[test]
     fn name_en() {
         assert_eq!(Prefecture::FUKUOKA.name_en(), "fukuoka");
+    }
+
+    #[test]
+    fn try_from_success() {
+        let result = Prefecture::try_from("14");
+        assert!(result.is_ok());
+        assert_eq!(result.unwrap(), Prefecture::KANAGAWA);
+        let result = Prefecture::try_from("新潟県");
+        assert!(result.is_ok());
+        assert_eq!(result.unwrap(), Prefecture::NIIGATA);
+    }
+
+    #[test]
+    fn try_from_failure() {
+        let result = Prefecture::try_from("48");
+        assert!(result.is_err());
+        let result = Prefecture::try_from("東京県");
+        assert!(result.is_err());
     }
 }
