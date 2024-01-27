@@ -33,7 +33,7 @@ impl Prefecture {
             Prefecture::NIIGATA,
             Prefecture::TOYAMA,
             Prefecture::ISHIKAWA,
-            Prefecture::HUKUI,
+            Prefecture::FUKUI,
             Prefecture::YAMANASHI,
             Prefecture::NAGANO,
             Prefecture::GIFU,

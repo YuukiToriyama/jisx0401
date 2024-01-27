@@ -20,7 +20,7 @@ pub enum Prefecture {
     NIIGATA,
     TOYAMA,
     ISHIKAWA,
-    HUKUI,
+    FUKUI,
     YAMANASHI,
     NAGANO,
     GIFU,

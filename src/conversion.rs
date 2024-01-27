@@ -139,7 +139,7 @@ impl Prefecture {
                 name_ja: "石川県",
                 name_en: "ishikawa",
             },
-            Prefecture::HUKUI => PrefectureData {
+            Prefecture::FUKUI => PrefectureData {
                 code: "18",
                 name_ja: "福井県",
                 name_en: "hukui",
@@ -333,7 +333,7 @@ impl TryFrom<&str> for Prefecture {
             "15" | "新潟県" => Ok(Prefecture::NIIGATA),
             "16" | "富山県" => Ok(Prefecture::TOYAMA),
             "17" | "石川県" => Ok(Prefecture::ISHIKAWA),
-            "18" | "福井県" => Ok(Prefecture::HUKUI),
+            "18" | "福井県" => Ok(Prefecture::FUKUI),
             "19" | "山梨県" => Ok(Prefecture::YAMANASHI),
             "20" | "長野県" => Ok(Prefecture::NAGANO),
             "21" | "岐阜県" => Ok(Prefecture::GIFU),
