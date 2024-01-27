@@ -1,4 +1,5 @@
 mod conversion;
+mod iter;
 
 pub enum Prefecture {
     HOKKAIDO,
