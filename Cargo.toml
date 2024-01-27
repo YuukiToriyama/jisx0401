@@ -6,5 +6,8 @@ authors = ["Yuuki Toriyama <github@toriyama.dev>"]
 license = "MIT"
 repository = "https://github.com/YuukiToriyama/jisx0401"
 edition = "2021"
+exclude = [
+    ".github/*"
+]
 
 [dependencies]
