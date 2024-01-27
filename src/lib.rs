@@ -1,3 +1,5 @@
+mod conversion;
+
 pub enum Prefecture {
     HOKKAIDO,
     AOMORI,
