@@ -43,10 +43,10 @@ impl Prefecture {
     /// ```rust
     /// use jisx0401::Prefecture;
     ///
-    /// let gunma = Prefecture::TOTTORI;
-    /// assert_eq!(gunma.name_en(), "tottori");
-    /// let yamanashi = Prefecture::EHIME;
-    /// assert_eq!(yamanashi.name_en(), "ehime");
+    /// let tottori = Prefecture::TOTTORI;
+    /// assert_eq!(tottori.name_en(), "tottori");
+    /// let ehime = Prefecture::EHIME;
+    /// assert_eq!(ehime.name_en(), "ehime");
     /// ```
     pub fn name_en(&self) -> &'static str {
         self.value().name_en
