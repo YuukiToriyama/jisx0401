@@ -116,8 +116,8 @@ impl Prefecture {
             },
             Prefecture::TOKYO => PrefectureData {
                 code: "13",
-                name_ja: "",
-                name_en: "",
+                name_ja: "東京都",
+                name_en: "tokyo",
             },
             Prefecture::KANAGAWA => PrefectureData {
                 code: "14",
