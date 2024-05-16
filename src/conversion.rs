@@ -313,56 +313,62 @@ impl TryFrom<&str> for Prefecture {
     ///
     /// let result = Prefecture::try_from("ほっかいどう");
     /// assert!(result.is_err());
+    ///
+    /// let result = Prefecture::try_from("aichi");
+    /// assert_eq!(result.unwrap(), Prefecture::AICHI);
+    ///
+    /// let result = Prefecture::try_from("aiti");
+    /// assert!(result.is_err());
     /// ```
     fn try_from(value: &str) -> Result<Self, Self::Error> {
         match value {
-            "01" | "北海道" => Ok(Prefecture::HOKKAIDO),
-            "02" | "青森県" => Ok(Prefecture::AOMORI),
-            "03" | "岩手県" => Ok(Prefecture::IWATE),
-            "04" | "宮城県" => Ok(Prefecture::MIYAGI),
-            "05" | "秋田県" => Ok(Prefecture::AKITA),
-            "06" | "山形県" => Ok(Prefecture::YAMAGATA),
-            "07" | "福島県" => Ok(Prefecture::FUKUSHIMA),
-            "08" | "茨城県" => Ok(Prefecture::IBARAKI),
-            "09" | "栃木県" => Ok(Prefecture::TOCHIGI),
-            "10" | "群馬県" => Ok(Prefecture::GUNMA),
-            "11" | "埼玉県" => Ok(Prefecture::SAITAMA),
-            "12" | "千葉県" => Ok(Prefecture::CHIBA),
-            "13" | "東京都" => Ok(Prefecture::TOKYO),
-            "14" | "神奈川県" => Ok(Prefecture::KANAGAWA),
-            "15" | "新潟県" => Ok(Prefecture::NIIGATA),
-            "16" | "富山県" => Ok(Prefecture::TOYAMA),
-            "17" | "石川県" => Ok(Prefecture::ISHIKAWA),
-            "18" | "福井県" => Ok(Prefecture::FUKUI),
-            "19" | "山梨県" => Ok(Prefecture::YAMANASHI),
-            "20" | "長野県" => Ok(Prefecture::NAGANO),
-            "21" | "岐阜県" => Ok(Prefecture::GIFU),
-            "22" | "静岡県" => Ok(Prefecture::SHIZUOKA),
-            "23" | "愛知県" => Ok(Prefecture::AICHI),
-            "24" | "三重県" => Ok(Prefecture::MIE),
-            "25" | "滋賀県" => Ok(Prefecture::SHIGA),
-            "26" | "京都府" => Ok(Prefecture::KYOTO),
-            "27" | "大阪府" => Ok(Prefecture::OSAKA),
-            "28" | "兵庫県" => Ok(Prefecture::HYOGO),
-            "29" | "奈良県" => Ok(Prefecture::NARA),
-            "30" | "和歌山県" => Ok(Prefecture::WAKAYAMA),
-            "31" | "鳥取県" => Ok(Prefecture::TOTTORI),
-            "32" | "島根県" => Ok(Prefecture::SHIMANE),
-            "33" | "岡山県" => Ok(Prefecture::OKAYAMA),
-            "34" | "広島県" => Ok(Prefecture::HIROSHIMA),
-            "35" | "山口県" => Ok(Prefecture::YAMAGUCHI),
-            "36" | "徳島県" => Ok(Prefecture::TOKUSHIMA),
-            "37" | "香川県" => Ok(Prefecture::KAGAWA),
-            "38" | "愛媛県" => Ok(Prefecture::EHIME),
-            "39" | "高知県" => Ok(Prefecture::KOCHI),
-            "40" | "福岡県" => Ok(Prefecture::FUKUOKA),
-            "41" | "佐賀県" => Ok(Prefecture::SAGA),
-            "42" | "長崎県" => Ok(Prefecture::NAGASAKI),
-            "43" | "熊本県" => Ok(Prefecture::KUMAMOTO),
-            "44" | "大分県" => Ok(Prefecture::OITA),
-            "45" | "宮崎県" => Ok(Prefecture::MIYAZAKI),
-            "46" | "鹿児島県" => Ok(Prefecture::KAGOSHIMA),
-            "47" | "沖縄県" => Ok(Prefecture::OKINAWA),
+            "01" | "北海道" | "hokkaido" => Ok(Prefecture::HOKKAIDO),
+            "02" | "青森県" | "aomori" => Ok(Prefecture::AOMORI),
+            "03" | "岩手県" | "iwate" => Ok(Prefecture::IWATE),
+            "04" | "宮城県" | "miyagi" => Ok(Prefecture::MIYAGI),
+            "05" | "秋田県" | "akita" => Ok(Prefecture::AKITA),
+            "06" | "山形県" | "yamagata" => Ok(Prefecture::YAMAGATA),
+            "07" | "福島県" | "fukushima" => Ok(Prefecture::FUKUSHIMA),
+            "08" | "茨城県" | "ibaraki" => Ok(Prefecture::IBARAKI),
+            "09" | "栃木県" | "tochigi" => Ok(Prefecture::TOCHIGI),
+            "10" | "群馬県" | "gunma" => Ok(Prefecture::GUNMA),
+            "11" | "埼玉県" | "saitama" => Ok(Prefecture::SAITAMA),
+            "12" | "千葉県" | "chiba" => Ok(Prefecture::CHIBA),
+            "13" | "東京都" | "tokyo" => Ok(Prefecture::TOKYO),
+            "14" | "神奈川県" | "kanagawa" => Ok(Prefecture::KANAGAWA),
+            "15" | "新潟県" | "niigata" => Ok(Prefecture::NIIGATA),
+            "16" | "富山県" | "toyama" => Ok(Prefecture::TOYAMA),
+            "17" | "石川県" | "ishikawa" => Ok(Prefecture::ISHIKAWA),
+            "18" | "福井県" | "fukui" => Ok(Prefecture::FUKUI),
+            "19" | "山梨県" | "yamanashi" => Ok(Prefecture::YAMANASHI),
+            "20" | "長野県" | "nagano" => Ok(Prefecture::NAGANO),
+            "21" | "岐阜県" | "gifu" => Ok(Prefecture::GIFU),
+            "22" | "静岡県" | "shizuoka" => Ok(Prefecture::SHIZUOKA),
+            "23" | "愛知県" | "aichi" => Ok(Prefecture::AICHI),
+            "24" | "三重県" | "mie" => Ok(Prefecture::MIE),
+            "25" | "滋賀県" | "shiga" => Ok(Prefecture::SHIGA),
+            "26" | "京都府" | "kyoto" => Ok(Prefecture::KYOTO),
+            "27" | "大阪府" | "osaka" => Ok(Prefecture::OSAKA),
+            "28" | "兵庫県" | "hyogo" => Ok(Prefecture::HYOGO),
+            "29" | "奈良県" | "nara" => Ok(Prefecture::NARA),
+            "30" | "和歌山県" | "wakayama" => Ok(Prefecture::WAKAYAMA),
+            "31" | "鳥取県" | "tottori" => Ok(Prefecture::TOTTORI),
+            "32" | "島根県" | "shimane" => Ok(Prefecture::SHIMANE),
+            "33" | "岡山県" | "okayama" => Ok(Prefecture::OKAYAMA),
+            "34" | "広島県" | "hiroshima" => Ok(Prefecture::HIROSHIMA),
+            "35" | "山口県" | "yamaguchi" => Ok(Prefecture::YAMAGUCHI),
+            "36" | "徳島県" | "tokushima" => Ok(Prefecture::TOKUSHIMA),
+            "37" | "香川県" | "kagawa" => Ok(Prefecture::KAGAWA),
+            "38" | "愛媛県" | "ehime" => Ok(Prefecture::EHIME),
+            "39" | "高知県" | "kochi" => Ok(Prefecture::KOCHI),
+            "40" | "福岡県" | "fukuoka" => Ok(Prefecture::FUKUOKA),
+            "41" | "佐賀県" | "saga" => Ok(Prefecture::SAGA),
+            "42" | "長崎県" | "nagasaki" => Ok(Prefecture::NAGASAKI),
+            "43" | "熊本県" | "kumamoto" => Ok(Prefecture::KUMAMOTO),
+            "44" | "大分県" | "oita" => Ok(Prefecture::OITA),
+            "45" | "宮崎県" | "miyazaki" => Ok(Prefecture::MIYAZAKI),
+            "46" | "鹿児島県" | "kagoshima" => Ok(Prefecture::KAGOSHIMA),
+            "47" | "沖縄県" | "okinawa" => Ok(Prefecture::OKINAWA),
             _ => Err("No matching prefectures were found."),
         }
     }
@@ -395,6 +401,9 @@ mod tests {
         let result = Prefecture::try_from("新潟県");
         assert!(result.is_ok());
         assert_eq!(result.unwrap(), Prefecture::NIIGATA);
+        let result = Prefecture::try_from("fukui");
+        assert!(result.is_ok());
+        assert_eq!(result.unwrap(), Prefecture::FUKUI);
     }
 
     #[test]
@@ -402,6 +411,8 @@ mod tests {
         let result = Prefecture::try_from("48");
         assert!(result.is_err());
         let result = Prefecture::try_from("東京県");
+        assert!(result.is_err());
+        let result = Prefecture::try_from("hukuoka");
         assert!(result.is_err());
     }
 }
