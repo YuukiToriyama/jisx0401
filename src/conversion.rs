@@ -142,7 +142,7 @@ impl Prefecture {
             Prefecture::FUKUI => PrefectureData {
                 code: "18",
                 name_ja: "福井県",
-                name_en: "hukui",
+                name_en: "fukui",
             },
             Prefecture::YAMANASHI => PrefectureData {
                 code: "19",
